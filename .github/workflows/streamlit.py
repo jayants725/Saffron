@@ -1,4 +1,15 @@
 import streamlit as st
+import pandas
+
+Data = {
+'Range :' : ['<16','>=16 And <18.5','>=18.5 AND <25','>=25 AND <30','ELSE']	,
+'Remark :' : ['Ex. UnderWeight','UnderWeight','Healthy','OverWeight','Ext. OverWeight']	,
+'ShortRem :' : ['EUW','UW','HE','OW','EOW']	}
+
+df=pandas.DataFrame(data)
+
+st.write(df)		
+
 
 # Title of the app
 st.title("BMI Calculator")
@@ -26,6 +37,7 @@ if st.button("Calculate BMI"):
         # Prevent division by zero
         if height_m <= 0:
             st.error("Height must be greater than zero.")
+            
         else:
             bmi = weight / (height_m ** 2)
             st.success(f"Your BMI is {bmi:.2f}")
@@ -41,5 +53,7 @@ if st.button("Calculate BMI"):
                 st.warning("You are Overweight")
             else:
                 st.error("You are Extremely Overweight")
+                
+               
     except:
         st.error("Please enter valid numeric values.")
