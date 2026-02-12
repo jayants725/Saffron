@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas
 
-Data = {
+data = {
 'Range :' : ['<16','>=16 And <18.5','>=18.5 AND <25','>=25 AND <30','ELSE']	,
 'Remark :' : ['Ex. UnderWeight','UnderWeight','Healthy','OverWeight','Ext. OverWeight']	,
 'ShortRem :' : ['EUW','UW','HE','OW','EOW']	}
@@ -56,4 +56,5 @@ if st.button("Calculate BMI"):
                 
                
     except:
+
         st.error("Please enter valid numeric values.")
