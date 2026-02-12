@@ -1,15 +1,22 @@
 import streamlit as st
+
 import pandas
 
-data = {
+Data = {
 'Range :' : ['<16','>=16 And <18.5','>=18.5 AND <25','>=25 AND <30','ELSE']	,
 'Remark :' : ['Ex. UnderWeight','UnderWeight','Healthy','OverWeight','Ext. OverWeight']	,
 'ShortRem :' : ['EUW','UW','HE','OW','EOW']	}
 
-df=pandas.DataFrame(data)
+df=pandas.DataFrame(Data)
 
 st.write(df)		
 
+st.subheader("Weight Range Selector")
+wtRange=list(range(40,100,3))
+
+wt=st.select_slider("Slide For Wt",options=wtRange)
+
+st.write("Weight :",wt)
 
 # Title of the app
 st.title("BMI Calculator")
@@ -56,5 +63,4 @@ if st.button("Calculate BMI"):
                 
                
     except:
-
         st.error("Please enter valid numeric values.")
